@@ -1,13 +1,15 @@
 const express = require("express");
 const app = express();
 
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+
 const { PORT } = require("./config/server.config");
 
-const router = require("./routes/index");
-const customRouter = require("./routes/customrouter");
-
-app.use("/api", router); // to register the router object
-app.use("/custom", customRouter);
+const apirouter = require("./routes/index");
+app.use("/api", apirouter); // to register the router object
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

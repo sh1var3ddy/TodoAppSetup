@@ -1,0 +1,6 @@
+flow of the backend architecture(MVC)
+1) routes
+2) validator
+3) controller
+4) services(business logic)
+5) repository(db interactions)
